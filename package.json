@@ -11,7 +11,8 @@
     "jscomp": "gulp jscompress",
     "csscomp": "gulp csscompress",
     "prefix": "gulp prefix",
-    "buildcss": "gulp buildcss"
+    "buildcss": "gulp buildcss",
+    "buildjs": "gulp buildjs"
   },
   "author": "",
   "license": "ISC",
