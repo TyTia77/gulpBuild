@@ -1,0 +1,9 @@
+* {
+  color: black;
+  padding: 0;
+  margin: 0;
+  text-decoration: none; }
+
+html body {
+  background-color: blue;
+  position: absolute; }
