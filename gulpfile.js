@@ -10,6 +10,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
 const jsonminify = require('gulp-jsonminify');
 // const pump = require('pump');
+// gulp-minify-inline
+// gulp-htmlmin
 
 gulp.task('minjson', function() {
     return gulp
