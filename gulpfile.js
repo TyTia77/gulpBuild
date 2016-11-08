@@ -7,7 +7,23 @@ const uglify = require('gulp-uglify'); //only js
 const concat = require('gulp-concat'); //concat css and js
 const uglifycss = require('gulp-uglifycss');
 const autoprefixer = require('gulp-autoprefixer');
+const imagemin = require('gulp-imagemin');
+const jsonminify = require('gulp-jsonminify');
 // const pump = require('pump');
+
+gulp.task('minjson', function() {
+    return gulp
+        .src(['data/**/*.json'])
+        .pipe(jsonminify())
+        .pipe(gulp.dest('dist/data'));
+});
+
+gulp.task('minimage', () => {
+    return gulp
+        .src('src/images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'));
+});
 
 //NOTE style
 gulp.task('sass', () => {
@@ -19,7 +35,12 @@ gulp.task('sass', () => {
 
 });
 
-gulp.task('prefix', () => gulp.src('./styles/*.css').pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false})).pipe(gulp.dest('./styles/prefix')));
+gulp.task('prefix', () => {
+    return gulp
+        .src('./styles/*.css')
+        .pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
+        .pipe(gulp.dest('./styles/prefix'));
+});
 
 gulp.task('csscompress', () => {
     return gulp
@@ -44,12 +65,12 @@ gulp.task('buildcss', () => {
 });
 
 //NOTE javascript
-gulp.task('buildjs',()=>{
-  return gulp
-    .src('scripts/**/*.+(js|css)')
-    .pipe(uglify())
-    .pipe(concat('script.min.js'))
-    .pipe(gulp.dest('./dist/scripts'))
+gulp.task('buildjs', () => {
+    return gulp
+        .src('scripts/**/*.+(js|css)')
+        .pipe(concat('script.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/scripts'))
 })
 
 gulp.task('es6', () => {
