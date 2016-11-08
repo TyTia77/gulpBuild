@@ -3,11 +3,11 @@ const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const plumber = require('gulp-plumber');
 const watch = require('gulp-watch');
-const uglify = require('gulp-uglify');
-const concat = require('gulp-concat');
+const uglify = require('gulp-uglify'); //only js
+const concat = require('gulp-concat'); //concat css and js
 const uglifycss = require('gulp-uglifycss');
+const autoprefixer = require('gulp-autoprefixer');
 // const pump = require('pump');
-//autoprefixer
 
 //NOTE style
 gulp.task('sass', () => {
@@ -19,9 +19,18 @@ gulp.task('sass', () => {
 
 });
 
+gulp.task('prefix', () =>
+    gulp.src('./styles/*.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('./styles/prefix'))
+);
+
 gulp.task('csscompress', () => {
     return gulp
-        .src('./styles/*.css')
+        .src('./styles/prefix/*.css')
         .pipe(uglifycss({
           // "maxLineLen": 80,
           "uglyComments":true
