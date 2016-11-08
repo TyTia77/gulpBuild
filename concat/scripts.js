@@ -1,5 +1,13 @@
 "use strict";
 
+var test = 222;
+"use strict";
+
+var PI = 3.14154334;
+
+console.log(PI);
+"use strict";
+
 var MILLIS_PER_HOUR = 3600000;
 
 JobList = Polymer({
