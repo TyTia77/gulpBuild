@@ -38,6 +38,22 @@ gulp.task('csscompress', () => {
         .pipe(gulp.dest('./dist/styles/'));
 });
 
+gulp.task('buildcss',()=>{
+  return gulp
+    .src('styles/**/*.+(js|css)')
+    .pipe(uglifycss({
+      // "maxLineLen": 80,
+      "uglyComments":true
+    }))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
+    .pipe(concat('style.min.css'))
+    .pipe(gulp.dest('dist/styles'));
+});
+
+
 //NOTE javascript
 gulp.task('es6', () => {
     return gulp
