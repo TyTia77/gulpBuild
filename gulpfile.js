@@ -12,8 +12,9 @@ const jsonminify = require('gulp-jsonminify');
 // const pump = require('pump');
 // gulp-minify-inline
 // gulp-htmlmin
+// gulp-livereload
 
-gulp.task('minjson', function() {
+gulp.task('minjson', () => {
     return gulp
         .src(['data/**/*.json'])
         .pipe(jsonminify())
@@ -70,10 +71,11 @@ gulp.task('buildcss', () => {
 gulp.task('buildjs', () => {
     return gulp
         .src('scripts/**/*.+(js|css)')
+	   .pipe(babel({presets: ['es2015']}))
         .pipe(concat('script.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./dist/scripts'))
-})
+});
 
 gulp.task('es6', () => {
     return gulp
