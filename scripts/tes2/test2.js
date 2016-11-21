@@ -2,7 +2,7 @@
 
 
 
-let a = [
+var a = [
 	{name: "name1", age: "1"},
 	{name: "name2", age: "2"},
 	{name: "name3", age: "3"},

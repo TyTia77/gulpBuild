@@ -32,6 +32,7 @@
     "gulp-watch": "^4.3.10"
   },
   "dependencies": {
-    "lodash": "^4.17.2"
+    "lodash": "^4.17.2",
+    "requirejs": "^2.3.2"
   }
 }
