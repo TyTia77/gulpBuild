@@ -1,3 +1,6 @@
 "use strict";
+import $ from 'jquery';
+const PI = 3.14154334;
 
-var test = 222;
+$('.test').css('color', 'red');
+console.log(PI);

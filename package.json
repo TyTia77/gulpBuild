@@ -12,13 +12,15 @@
     "csscomp": "gulp csscompress",
     "prefix": "gulp prefix",
     "buildcss": "gulp buildcss",
-    "buildjs": "gulp buildjs"
+    "buildjs": "gulp buildjs",
+	"b":"browserify dist/scripts/script.min.js -o bundle.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
     "bower": "^1.8.0",
+    "browserify": "^13.1.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
